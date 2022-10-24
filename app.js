@@ -94,5 +94,3 @@ const removeBooks = (e) => {
 };
 
 booksContainer.addEventListener('click', removeBooks);
-
-localStorage.clear();
