@@ -64,7 +64,7 @@ bookForm.addEventListener('submit', (e) => {
 booksContainer.addEventListener('click', (e) => {
   if (e.target.id === 'remove-book') {
     const newData = data.filter((item) => {
-      return item.id !== e.target.parentElement.id;
+      return item.id != e.target.parentElement.id;
     });
     booksContainer.innerHTML = '';
     displayBooks(newData);
