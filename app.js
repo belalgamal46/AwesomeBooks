@@ -29,7 +29,12 @@ const bookForm = document.getElementById('bookForm');
 window.addEventListener(
   'load',
   (e) => {
-    localStorageData ? displayBooks(localStorageData) : displayBooks(data);
+    if (!localStorageData) {
+      localStorage.setItem('data', JSON.stringify(data));
+      displayBooks(localStorageData);
+    } else {
+      displayBooks(localStorageData);
+    }
   },
   false
 );
@@ -53,7 +58,7 @@ const displayBooks = (data) => {
 };
 
 const addBook = (name, author) => {
-  localStorageData.push({
+  localStorageData?.push({
     id: localStorageData.length
       ? localStorageData[localStorageData.length - 1].id + 1
       : 1,
@@ -89,3 +94,5 @@ const removeBooks = (e) => {
 };
 
 booksContainer.addEventListener('click', removeBooks);
+
+localStorage.clear();
