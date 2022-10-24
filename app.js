@@ -22,7 +22,6 @@ let data = [
 ];
 
 let localStorageData = JSON.parse(localStorage.getItem('data'));
-console.log(localStorageData);
 
 const booksContainer = document.querySelector('.books-container');
 const bookForm = document.getElementById('bookForm');
