@@ -77,7 +77,7 @@ bookForm.addEventListener('submit', (e) => {
   }
 });
 
-booksContainer.addEventListener('click', (e) => {
+const removeBooks = (e) => {
   if (e.target.id === 'remove-book') {
     const newData = localStorageData.filter((item) => {
       return item.id != e.target.parentElement.id;
@@ -86,4 +86,6 @@ booksContainer.addEventListener('click', (e) => {
     localStorage.setItem('data', JSON.stringify(localStorageData));
     displayBooks(localStorageData);
   }
-});
+};
+
+booksContainer.addEventListener('click', removeBooks);
