@@ -1,4 +1,4 @@
-let data = [
+const data = [
   {
     id: 1,
     name: 'First Book',
@@ -29,7 +29,7 @@ const bookForm = document.getElementById('bookForm');
 window.addEventListener(
   'load',
   (e) => {
-    displayBooks(localStorageData);
+    localStorageData ? displayBooks(localStorageData) : displayBooks(data);
   },
   false
 );
