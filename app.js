@@ -26,9 +26,27 @@ let localStorageData = JSON.parse(localStorage.getItem('data'));
 const booksContainer = document.querySelector('.books-container');
 const bookForm = document.getElementById('bookForm');
 
+const displayBooks = (data) => {
+  booksContainer.innerHTML = '';
+  localStorage.setItem('data', JSON.stringify(data));
+  for (let i = 0; i < data.length; i += 1) {
+    const content = `
+    <div class="book-card" id=${data[i].id}>
+      <div class="book-details">
+        <h2>${data[i].name}</h2>
+        <h2>${data[i].author}</h2>
+        <hr />
+      </div>
+      <button type="button" id="remove-book">Remove</button>
+    </div>
+    `;
+    booksContainer.innerHTML += content;
+  }
+};
+
 window.addEventListener(
   'load',
-  (e) => {
+  () => {
     if (!localStorageData) {
       localStorage.setItem('data', JSON.stringify(data));
       localStorageData = JSON.parse(localStorage.getItem('data'));
@@ -37,26 +55,9 @@ window.addEventListener(
       displayBooks(localStorageData);
     }
   },
+  // eslint-disable-next-line comma-dangle
   false
 );
-
-const displayBooks = (data) => {
-  booksContainer.innerHTML = '';
-  localStorage.setItem('data', JSON.stringify(data));
-  for (let i = 0; i < data.length; i++) {
-    let content = `
-    <div class="book-card" id=${data[i].id}>
-      <div class="book-details">
-        <h2>${data[i].name}</h2>
-        <h2>${data[i].author}</h2>
-        <hr />
-      </div>
-    <button type="button" id="remove-book">Remove</button>
-  </div>
-    `;
-    booksContainer.innerHTML += content;
-  }
-};
 
 const addBook = (name, author) => {
   localStorageData.push({
@@ -79,15 +80,16 @@ bookForm.addEventListener('submit', (e) => {
     bookTitle.value = '';
     author.value = '';
   } else {
-    console.log('book is empty');
+    throw new Error('trying to add empty values');
   }
 });
 
 const removeBooks = (e) => {
   if (e.target.id === 'remove-book') {
-    const newData = localStorageData.filter((item) => {
-      return item.id != e.target.parentElement.id;
-    });
+    const newData = localStorageData.filter(
+      // eslint-disable-next-line comma-dangle, eqeqeq
+      (item) => item.id != e.target.parentElement.id
+    );
     localStorageData = [...newData];
     localStorage.setItem('data', JSON.stringify(localStorageData));
     displayBooks(localStorageData);
