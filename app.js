@@ -31,6 +31,7 @@ window.addEventListener(
   (e) => {
     if (!localStorageData) {
       localStorage.setItem('data', JSON.stringify(data));
+      localStorageData = JSON.parse(localStorage.getItem('data'));
       displayBooks(localStorageData);
     } else {
       displayBooks(localStorageData);
@@ -58,7 +59,7 @@ const displayBooks = (data) => {
 };
 
 const addBook = (name, author) => {
-  localStorageData?.push({
+  localStorageData.push({
     id: localStorageData.length
       ? localStorageData[localStorageData.length - 1].id + 1
       : 1,
