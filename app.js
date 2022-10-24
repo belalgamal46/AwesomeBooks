@@ -1,24 +1,24 @@
 const data = [
   {
-    name: 'First Book',
-    author: 'First Author Name',
+    name: "First Book",
+    author: "First Author Name",
   },
   {
-    name: 'Second Book',
-    author: 'Second Author Name',
+    name: "Second Book",
+    author: "Second Author Name",
   },
   {
-    name: 'Third Book',
-    author: 'Third Author Name',
+    name: "Third Book",
+    author: "Third Author Name",
   },
   {
-    name: 'Fourth Book',
-    author: 'Fourth Author Name',
+    name: "Fourth Book",
+    author: "Fourth Author Name",
   },
 ];
-
+const booksContainer = document.querySelector(".books-container");
+const bookForm = document.getElementById("bookForm");
 const displayBooks = () => {
-  const booksContainer = document.querySelector('.books-container');
   for (let i = 0; i < data.length; i++) {
     let content = `
     <div class="book-card">
@@ -30,16 +30,28 @@ const displayBooks = () => {
     <button type="button">Remove</button>
   </div>
     `;
-    booksContainer += content;
+    booksContainer.innerHTML += content;
   }
 };
 
-const addBook = () => {
-  const bookTitle = document.getElementById('book-title');
-  const author = document.getElementById('author');
-
-  const newBook = null;
+const addBook = (name, author) => {
+  data.push({ name: name.value, author: author.value });
+  booksContainer.innerHTML = "";
+  displayBooks();
 };
 
 displayBooks();
-addBook();
+
+bookForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const bookTitle = document.getElementById("book-title");
+  const author = document.getElementById("author");
+  if (bookTitle.value.length || author.value.length) {
+    addBook(bookTitle, author);
+    bookTitle.value = "";
+    author.value = "";
+  } else {
+    console.log("book is empty");
+  }
+});
