@@ -25,6 +25,8 @@ git clone https://github.com/belalgamal46/AwesomeBooks.git
 👤 **Keli**
 
 - GitHub: [@kelibst](https://github.com/kelibst)
+- LinkedIn: [Keli](https://www.linkedin.com/in/marios-kanellopoulos-a99332181/)
+
 
 👤 **Ernest Korir**
 
