@@ -96,6 +96,7 @@ bookForm.addEventListener('submit', (event) => {
   const id = bookData.length ? bookData[bookData.length - 1].bookId + 1 : 1;
 
   if (bookTitle === '' || authorName === '') {
+    // eslint-disable-next-line no-alert
     alert('Please fill in all fields');
     return;
   }
