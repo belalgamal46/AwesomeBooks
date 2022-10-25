@@ -11,9 +11,11 @@
     <header></header>
     <main>
       <section>
-        <h1>Awesome Books</h1>
+        <h1 class="header-title">Awesome Books</h1>
         <div class="books-container"></div>
-        <div>
+        <hr id="line" />
+        <div id="form-div">
+          <h2 id="form-title">Add a new book</h2>
           <form id="bookForm">
             <input
               type="text"
@@ -22,7 +24,7 @@
               placeholder="Book-Title"
             />
             <input type="text" name="author" id="author" placeholder="Author" />
-            <button type="submit">Add</button>
+            <button class="sbtn" type="submit">Add</button>
           </form>
         </div>
       </section>
