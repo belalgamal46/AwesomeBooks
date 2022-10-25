@@ -2,16 +2,13 @@
 
 const booksContainer = document.querySelector('.books-container');
 // Book class: Represent a book
-class Book {
+class Books {
   constructor(bookTitle, authorName, bookId) {
     this.bookTitle = bookTitle;
     this.authorName = authorName;
     this.bookId = bookId;
   }
-}
 
-// locatStorage class
-class Store {
   static getBooks() {
     let books = null;
     if (localStorage.getItem('books') === null) {
@@ -24,13 +21,13 @@ class Store {
   }
 
   static addBooks(book) {
-    const books = Store.getBooks();
+    const books = Books.getBooks();
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   }
 
   static removeBook(book) {
-    const books = Store.getBooks();
+    const books = Books.getBooks();
 
     if (book.id !== 'remove-book') {
       return;
@@ -49,7 +46,7 @@ class Store {
 // interface class
 class Interface {
   static displayBooks() {
-    const books = Store.getBooks();
+    const books = Books.getBooks();
 
     booksContainer.innerHTML = '';
 
@@ -92,7 +89,7 @@ bookForm.addEventListener('submit', (event) => {
   const bookTitle = document.getElementById('book-title').value;
   const authorName = document.getElementById('author').value;
 
-  const bookData = Store.getBooks();
+  const bookData = Books.getBooks();
   const id = bookData.length ? bookData[bookData.length - 1].bookId + 1 : 1;
 
   if (bookTitle === '' || authorName === '') {
@@ -100,15 +97,15 @@ bookForm.addEventListener('submit', (event) => {
     alert('Please fill in all fields');
     return;
   }
-  const book = new Book(bookTitle, authorName, id);
+  const book = new Books(bookTitle, authorName, id);
 
   Interface.addBookToInterface(book);
-  Store.addBooks(book);
+  Books.addBooks(book);
   Interface.clearInputs();
 });
 
 // Event: remove a book
 booksContainer.addEventListener('click', (event) => {
   Interface.removeBookFromInterface(event.target);
-  Store.removeBook(event.target);
+  Books.removeBook(event.target);
 });
