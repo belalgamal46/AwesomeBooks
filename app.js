@@ -60,9 +60,9 @@ class Interface {
     booksContainer.innerHTML += `
     <div class="book-card" id=${book.bookId}>
       <div class="book-details">
-        <h2>${book.bookTitle}</h2>
-        <h2>${book.authorName}</h2>
-        <hr />
+        <p>"${book.bookTitle}"</p>
+        <p> by </p>
+        <p>${book.authorName}</p>
       </div>
       <button type="button" id="remove-book">Remove</button>
     </div>

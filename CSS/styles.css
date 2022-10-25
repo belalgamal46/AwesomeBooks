@@ -3,3 +3,39 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+#form-div {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 15px;
+}
+
+#form-title {
+  margin: auto;
+}
+
+#bookForm {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+#line {
+  margin: auto;
+  width: 100px;
+  margin-top: 20px;
+}
