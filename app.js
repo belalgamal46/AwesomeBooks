@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const booksContainer = document.querySelector(".books-container");
+const booksContainer = document.querySelector('.books-container');
 // Book class: Represent a book
 class Books {
   constructor(bookTitle, authorName, bookId) {
@@ -11,11 +11,11 @@ class Books {
 
   static getBooks() {
     let books = null;
-    if (localStorage.getItem("books") === null) {
+    if (localStorage.getItem('books') === null) {
       books = [];
       return books;
     }
-    books = JSON.parse(localStorage.getItem("books"));
+    books = JSON.parse(localStorage.getItem('books'));
 
     return books;
   }
@@ -23,13 +23,13 @@ class Books {
   static addBooks(book) {
     const books = Books.getBooks();
     books.push(book);
-    localStorage.setItem("books", JSON.stringify(books));
+    localStorage.setItem('books', JSON.stringify(books));
   }
 
   static removeBook(book) {
     const books = Books.getBooks();
 
-    if (book.id !== "remove-book") {
+    if (book.id !== 'remove-book') {
       return;
     }
 
@@ -39,7 +39,7 @@ class Books {
       }
     });
 
-    localStorage.setItem("books", JSON.stringify(books));
+    localStorage.setItem('books', JSON.stringify(books));
   }
 }
 
@@ -48,7 +48,7 @@ class Interface {
   static displayBooks() {
     const books = Books.getBooks();
 
-    booksContainer.innerHTML = "";
+    booksContainer.innerHTML = '';
 
     books.forEach((book) => Interface.addBookToInterface(book));
   }
@@ -67,35 +67,35 @@ class Interface {
   }
 
   static removeBookFromInterface(book) {
-    if (book.id === "remove-book") {
+    if (book.id === 'remove-book') {
       book.parentElement.remove();
     }
   }
 
   static clearInputs() {
-    document.getElementById("book-title").value = "";
-    document.getElementById("author").value = "";
+    document.getElementById('book-title').value = '';
+    document.getElementById('author').value = '';
   }
 }
 
 // Event: Display books
-document.addEventListener("DOMContentLoaded", Interface.displayBooks);
+document.addEventListener('DOMContentLoaded', Interface.displayBooks);
 
 // Event: add a book
-const bookForm = document.getElementById("bookForm");
+const bookForm = document.getElementById('bookForm');
 
-bookForm.addEventListener("submit", (event) => {
+bookForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const bookTitle = document.getElementById("book-title").value;
-  const authorName = document.getElementById("author").value;
+  const bookTitle = document.getElementById('book-title').value;
+  const authorName = document.getElementById('author').value;
 
   const bookData = Books.getBooks();
   const id = bookData.length ? bookData[bookData.length - 1].bookId + 1 : 1;
 
-  if (bookTitle === "" || authorName === "") {
+  if (bookTitle === '' || authorName === '') {
     // eslint-disable-next-line no-alert
-    alert("Please fill in all fields");
+    alert('Please fill in all fields');
     return;
   }
   const book = new Books(bookTitle, authorName, id);
@@ -106,24 +106,24 @@ bookForm.addEventListener("submit", (event) => {
 });
 
 // Event: remove a book
-booksContainer.addEventListener("click", (event) => {
+booksContainer.addEventListener('click', (event) => {
   Interface.removeBookFromInterface(event.target);
   Books.removeBook(event.target);
 });
 
-const navLinks = document.querySelector(".nav-links");
-const sections = document.querySelector("main").children;
+const navLinks = document.querySelector('.nav-links');
+const sections = document.querySelector('main').children;
 
-navLinks.addEventListener("click", (event) => {
+navLinks.addEventListener('click', (event) => {
   Array.from(sections).forEach((section) => {
     if (event.target.classList.contains(section.id)) {
-      section.classList.remove("hide");
-      event.target.classList.add("highlight");
+      section.classList.remove('hide');
+      event.target.classList.add('highlight');
     } else {
-      section.classList.add("hide");
+      section.classList.add('hide');
       for (let i = 0; i < navLinks.children.length; i++) {
         if (navLinks.children[i].classList.contains(section.id)) {
-          navLinks.children[i].classList.remove("highlight");
+          navLinks.children[i].classList.remove('highlight');
         }
       }
     }

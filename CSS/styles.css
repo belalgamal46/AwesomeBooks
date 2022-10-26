@@ -23,7 +23,7 @@ header {
   align-items: center;
   padding: 1rem;
   height: 5vh;
-  border: 0.1rem solid black;
+  border: 0.15rem solid black;
 }
 
 .nav-links {
@@ -31,7 +31,7 @@ header {
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  width: 20%;
+  width: 25%;
 }
 
 .nav-links hr {
@@ -42,15 +42,24 @@ header {
 }
 
 .nav-links li {
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .logo a {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
   color: black;
+}
+
+#add-book {
+  width: 15%;
+  text-align: center;
 }
 
 #form-div {
@@ -101,7 +110,7 @@ header {
 .header-title {
   text-align: center;
   padding-top: 1rem;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 button#remove-book {
@@ -161,10 +170,6 @@ footer {
   align-items: center;
 }
 
-#books-list div h1 {
-  font-size: 2.5rem;
-}
-
 /* ---------------------- Contact ---------------------- */
 #contact {
   width: 30%;
@@ -172,10 +177,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#contact div h1 {
-  font-size: 2rem;
 }
 
 #contact p {
@@ -188,5 +189,5 @@ footer {
 }
 
 .highlight {
-  color: blue;
+  color: rgb(55, 55, 177);
 }
