@@ -111,14 +111,15 @@ booksContainer.addEventListener('click', (event) => {
   Books.removeBook(event.target);
 });
 
-export { Interface, Books };
+const navLinks = document.querySelector('.nav-links');
+const sections = document.querySelector('main').children;
 
-
-const listBtn = document.querySelector('#list');
-const addNewBtn = document.querySelector('#addNew');
-const contactBtn = document.querySelector('#contact');
-const addNewSection =document.querySelector('#add-new-book')
-
-addNewBtn.addEventListener('click', () => {
-
-})
+navLinks.addEventListener('click', (event) => {
+  Array.from(sections).forEach((section) => {
+    if (event.target.classList === section.id) {
+      section.classList.remove('hide');
+    } else {
+      section.classList.add('hide');
+    }
+  });
+});

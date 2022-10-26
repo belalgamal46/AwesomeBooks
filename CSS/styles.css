@@ -5,7 +5,7 @@
 }
 
 main {
-  height: 90vh;
+  height: 88vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,7 @@ main {
 
 /* ---------------------- Navbar ---------------------- */
 header {
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 .navbar-container {
