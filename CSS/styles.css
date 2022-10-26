@@ -166,7 +166,7 @@ footer {
 }
 
 /* ---------------------- Contact ---------------------- */
-#contact {
+.contact {
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -174,11 +174,11 @@ footer {
   align-items: center;
 }
 
-#contact div h1 {
+.contact div h1 {
   font-size: 2rem;
 }
 
-#contact p {
+.contact p {
   margin-top: 3rem;
   margin-bottom: 1.2rem;
 }

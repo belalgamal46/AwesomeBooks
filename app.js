@@ -112,3 +112,13 @@ booksContainer.addEventListener('click', (event) => {
 });
 
 export { Interface, Books };
+
+
+const listBtn = document.querySelector('#list');
+const addNewBtn = document.querySelector('#addNew');
+const contactBtn = document.querySelector('#contact');
+const addNewSection =document.querySelector('#add-new-book')
+
+addNewBtn.addEventListener('click', () => {
+
+})
