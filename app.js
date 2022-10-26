@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', Interface.displayBooks);
 
 // Event: add a book
 const bookForm = document.getElementById('bookForm');
+
 bookForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -109,3 +110,5 @@ booksContainer.addEventListener('click', (event) => {
   Interface.removeBookFromInterface(event.target);
   Books.removeBook(event.target);
 });
+
+export { Interface, Books };

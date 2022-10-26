@@ -4,6 +4,55 @@
   box-sizing: border-box;
 }
 
+main {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------- Navbar ---------------------- */
+header {
+  padding: 10px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  height: 5vh;
+  border: 0.1rem solid black;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  width: 20%;
+}
+
+.nav-links hr {
+  width: 1px;
+  height: 30px;
+  border: none;
+  background-color: lightgray;
+}
+
+.nav-links li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
 #form-div {
   display: flex;
   flex-direction: column;
@@ -26,6 +75,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0.5rem;
+  column-gap: 2rem;
 }
 
 .book-details {
@@ -90,4 +140,49 @@ button.sbtn:hover {
 
 .book-card:nth-child(odd) {
   background: lightgray;
+}
+
+footer {
+  height: 5vh;
+  width: 99%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  border: 0.13rem solid #000;
+}
+
+/* ---------------------- Books List ---------------------- */
+#books-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#books-list div h1 {
+  font-size: 2.5rem;
+}
+
+/* ---------------------- Contact ---------------------- */
+#contact {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#contact div h1 {
+  font-size: 2rem;
+}
+
+#contact p {
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+}
+
+.hide {
+  display: none;
 }
