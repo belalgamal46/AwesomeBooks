@@ -8,27 +8,60 @@
     <link rel="stylesheet" href="./CSS/styles.css" />
   </head>
   <body>
-    <header></header>
+    <header>
+      <nav class="navbar-container">
+        <div class="logo">
+          <a href="./index.html">Awesome Books</a>
+        </div>
+        <ul class="nav-links">
+          <li class="books-list list">List</li>
+          <hr />
+          <li class="add-new-book add-book">Add new</li>
+          <hr />
+          <li class="contact cont">Contact</li>
+        </ul>
+      </nav>
+    </header>
     <main>
-      <section>
+      <section id="list">
         <h1 class="header-title">Awesome Books</h1>
         <div class="books-container"></div>
-        <hr id="line" />
-        <div id="form-div">
-          <h2 id="form-title">Add a new book</h2>
-          <form id="bookForm">
-            <input
-              type="text"
-              name="book-title"
-              id="book-title"
-              placeholder="Book-Title"
-            />
-            <input type="text" name="author" id="author" placeholder="Author" />
-            <button class="sbtn" type="submit">Add</button>
-          </form>
+      </section>
+
+      <section id="add-book" class="hide">
+        <div>
+          <h2 class="header-title">Add a new book</h2>
         </div>
+        <form id="bookForm">
+          <input
+            type="text"
+            name="book-title"
+            id="book-title"
+            placeholder="Book-Title"
+          />
+          <input type="text" name="author" id="author" placeholder="Author" />
+          <button class="sbtn" type="submit">Add</button>
+        </form>
+      </section>
+
+      <section id="contact" class="hide">
+        <div>
+          <h2 class="header-title">Contact information</h2>
+        </div>
+        <p>
+          Do have any questions or you just want to say "Hello"?<br />You can
+          reach out to us
+        </p>
+        <ul>
+          <li>Our e-mail: mail@mail.com</li>
+          <li>Our phone number: 0043586534422</li>
+          <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
       </section>
     </main>
+    <footer>
+      <div>&copy; Copyright ...</div>
+    </footer>
     <script src="./app.js" type="module"></script>
   </body>
 </html>

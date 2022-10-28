@@ -1,4 +1,4 @@
-/* eslint-disable max-classes-per-file */
+/* eslint-disable */
 
 const booksContainer = document.querySelector('.books-container');
 // Book class: Represent a book
@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', Interface.displayBooks);
 
 // Event: add a book
 const bookForm = document.getElementById('bookForm');
+
 bookForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -108,4 +109,23 @@ bookForm.addEventListener('submit', (event) => {
 booksContainer.addEventListener('click', (event) => {
   Interface.removeBookFromInterface(event.target);
   Books.removeBook(event.target);
+});
+
+const navLinks = document.querySelector('.nav-links');
+const sections = document.querySelector('main').children;
+
+navLinks.addEventListener('click', (event) => {
+  Array.from(sections).forEach((section) => {
+    if (event.target.classList.contains(section.id)) {
+      section.classList.remove('hide');
+      event.target.classList.add('highlight');
+    } else {
+      section.classList.add('hide');
+      for (let i = 0; i < navLinks.children.length; i++) {
+        if (navLinks.children[i].classList.contains(section.id)) {
+          navLinks.children[i].classList.remove('highlight');
+        }
+      }
+    }
+  });
 });
